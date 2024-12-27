@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 健身生活</title>
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 自定义 CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="font/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 注册页面布局 */
+        .register-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .register-box {
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+        }
+
+        /* 品牌样式 */
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .brand-logo {
+            transition: transform 0.3s;
+        }
+
+        .brand-link:hover .brand-logo {
+            transform: rotate(-10deg);
+        }
+
+        /* 表单样式 */
+        .form-group {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .input-group-text {
+            background-color: transparent;
+            border-right: none;
+        }
+
+        .input-group .form-control {
+            border-left: none;
+        }
+
+        .input-group .form-control:focus {
+            border-color: #dee2e6;
+            box-shadow: none;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 992px) {
+            .register-box {
+                padding: 1.8rem !important;
+            }
+            
+            .brand-text {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .register-page {
+                padding: 0.5rem;
+                align-items: flex-start;
+            }
+
+            .register-box {
+                padding: 1.5rem !important;
+                margin: 0;
+            }
+            
+            .brand-text {
+                font-size: 1.3rem;
+            }
+            
+            .brand-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            .form-label {
+                font-size: 0.9rem;
+            }
+            
+            .form-check-label,
+            .text-muted {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* 超小屏幕优化 */
+        @media (max-width: 375px) {
+            .register-box {
+                padding: 1rem !important;
+            }
+            
+            .brand-logo {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .brand-text {
+                font-size: 1.2rem;
+            }
+            
+            .d-flex.justify-content-between {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start !important;
+            }
+        }
+
+        /* 横屏模式优化 */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .register-page {
+                align-items: flex-start;
+                padding: 1rem 0;
+            }
+            
+            .register-box {
+                margin: 0 auto;
+                max-width: 500px;
+            }
+            
+            .mb-3,
+            .mb-4 {
+                margin-bottom: 0.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <a href="index.html" class="text-decoration-none">
+                                <div class="d-flex align-items-center justify-content-center mb-3">
+                                    <i class="fas fa-dumbbell fa-2x me-2 text-primary"></i>
+                                    <h4 class="mb-0">健身生活</h4>
+                                </div>
+                            </a>
+                            <h5>新用户注册</h5>
+                        </div>
+                        <form id="registerForm" onsubmit="return register(event)">
+                            <div class="mb-3">
+                                <label for="registerName" class="form-label">用户名</label>
+                                <input type="text" class="form-control" id="registerName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerEmail" class="form-label">邮箱地址</label>
+                                <input type="email" class="form-control" id="registerEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerPassword" class="form-label">密码</label>
+                                <input type="password" class="form-control" id="registerPassword" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">确认密码</label>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">注册</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <p class="mb-0">已有账号？ <a href="login.html">立即登录</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function register(event) {
+            event.preventDefault();
+            
+            // 获取密码值
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // 验证两次密码是否一致
+            if (password !== confirmPassword) {
+                alert('两次输入的密码不一致！');
+                return false;
+            }
+            
+            // 使用 localStorage 存储一个标记
+            localStorage.setItem('showRegisterSuccess', 'true');
+            
+            // 跳转到首页
+            window.location.href = 'index.html';
+            
+            return false;
+        }
+    </script>
+</body>
+</html> 

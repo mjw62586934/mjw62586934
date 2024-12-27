@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健身生活</title>
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 自定义 CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="font/css/all.min.css" rel="stylesheet">
+    <!-- 视频图标 -->
+    <style>
+        /* 基础样式 */
+        .card {
+            transition: transform 0.3s;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* 导航栏样式 */
+        .navbar-brand {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 1.5rem;
+            padding: 0;
+        }
+
+        .brand-logo {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transform: rotate(-10deg);
+            box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .brand-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            font-weight: normal;
+        }
+
+        /* 下拉菜单样式 */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            padding: 0.6rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            transform: translateX(5px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        /* 轮播图样式 */
+        .carousel-item {
+            position: relative;
+        }
+
+        .carousel-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+        }
+
+        .carousel-item img {
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            bottom: 20%;
+        }
+
+        .carousel-caption h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* 视频缩略图样式 */
+        .video-thumbnail {
+            position: relative;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 15px;
+            border-radius: 50%;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background-color: #212529;
+            font-size: 0.9rem;
+        }
+
+        .footer-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            transform: translateX(3px);
+        }
+
+        .social-link {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background: #0d6efd;
+            transform: translateY(-2px);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 400px;
+            }
+            
+            .carousel-caption {
+                padding: 15px;
+                bottom: 10%;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .brand-subtitle {
+                display: none;
+            }
+            
+            .brand-logo {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 教练团队���式 */
+        .trainer-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 3px solid #f8f9fa;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .trainer-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .trainer-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .trainer-card h5 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .trainer-card img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .trainer-description {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="brand-logo me-2">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <div class="brand-text">
+                    健身生活
+                    <span class="brand-subtitle">FITNESS LIFE</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">首页</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            课程
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="beginner.html">
+                                <i class="fas fa-running me-2"></i>初级训练课程
+                            </a></li>
+                            <li><a class="dropdown-item" href="#intermediate">
+                                <i class="fas fa-dumbbell me-2"></i>中级训练课程
+                            </a></li>
+                            <li><a class="dropdown-item" href="#advanced">
+                                <i class="fas fa-fire me-2"></i>高级训练课程
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#yoga">
+                                <i class="fas fa-spa me-2"></i>瑜伽课程
+                            </a></li>
+                            <li><a class="dropdown-item" href="#hiit">
+                                <i class="fas fa-bolt me-2"></i>HIIT训练
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#all-courses">
+                                <i class="fas fa-th-list me-2"></i>所有课程
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系我们</a>
+                    </li>
+                </ul>
+                
+                <!-- 搜索框 -->
+                <form class="d-flex me-3">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="搜索课程..." aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- 登录注册按钮 -->
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-outline-light me-2">
+                        登录
+                    </a>
+                    <a href="register.html" class="btn btn-primary">
+                        注册
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 轮播图 -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./imgs/carousel-1.jpg" class="d-block w-100" alt="专业健身指导">
+                
+            </div>
+            <div class="carousel-item">
+                <img src="./imgs/carousel-3.jpg" class="d-block w-100" alt="科学训练方法">
+                
+            </div>
+            <div class="carousel-item">
+                <img src="./imgs/carousel-2.jpg" class="d-block w-100" alt="丰富课程内容">
+                
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- 频教程部分 -->
+    <section class="video-tutorials py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">热门视频教程</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="video-thumbnail">
+                            <img src="imgs/首页-初级健身教程你.jpg" class="card-img-top" alt="视频缩略图">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">初级健身教程</h5>
+                            <p class="card-text">适合健身新人的基础训练课程</p>
+                            <a href="#" class="btn btn-primary">观看视频</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="video-thumbnail">
+                            <img src="imgs/首页-进阶力量训练教程.jpg" class="card-img-top" alt="视频缩略图">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">进阶力量训练</h5>
+                            <p class="card-text">提升肌肉力量的专业训练课程</p>
+                            <a href="#" class="btn btn-primary">观看视频</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="video-thumbnail">
+                            <img src="imgs/首页-瑜伽冥想课程.jpg" class="card-img-top" alt="视频缩略图">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">瑜伽冥想课程</h5>
+                            <p class="card-text">放松身心的瑜伽训练课程</p>
+                            <a href="#" class="btn btn-primary">观看视频</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="video-thumbnail">
+                            <img src="imgs/首页-高强度训练.jpg" class="card-img-top" alt="视频缩略图">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">HIIT高强度训练</h5>
+                            <p class="card-text">快速燃脂的间歇训练课程</p>
+                            <a href="#" class="btn btn-primary">观看视频</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="video-thumbnail">
+                            <img src="imgs/首页-核心力量训练教程.jpg" class="card-img-top" alt="视频缩略图">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">核心力量训练</h5>
+                            <p class="card-text">强化腹部和核心肌群的专练</p>
+                            <a href="#" class="btn btn-primary">观看视频</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="video-thumbnail">
+                            <img src="imgs/首页-拉伸放松课程.jpg" class="card-img-top" alt="视频缩略图">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">拉伸放松课程</h5>
+                            <p class="card-text">训练后恢复与肌肉放松指导</p>
+                            <a href="#" class="btn btn-primary">观看视频</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：健身计划部分 -->
+    <section class="fitness-plans py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">精选健身计划</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="plan-card text-center p-4 bg-white rounded shadow-sm">
+                        <div class="plan-icon mb-3">
+                            <i class="fas fa-dumbbell fa-3x text-primary"></i>
+                        </div>
+                        <h4>新手入门</h4>
+                        <p class="text-muted">为期30天的入门训练计划</p>
+                        <a href="beginner.html" class="btn btn-outline-primary">解更多</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="plan-card text-center p-4 bg-white rounded shadow-sm">
+                        <div class="plan-icon mb-3">
+                            <i class="fas fa-running fa-3x text-success"></i>
+                        </div>
+                        <h4>减脂计划</h4>
+                        <p class="text-muted">科学减脂，健康生活</p>
+                        <a href="weight-loss.html" class="btn btn-outline-success">了解更多</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="plan-card text-center p-4 bg-white rounded shadow-sm">
+                        <div class="plan-icon mb-3">
+                            <i class="fas fa-heartbeat fa-3x text-danger"></i>
+                        </div>
+                        <h4>增肌计划</h4>
+                        <p class="text-muted">专业增肌训练方案</p>
+                        <a href="muscle-gain.html" class="btn btn-outline-danger">了解更</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="plan-card text-center p-4 bg-white rounded shadow-sm">
+                        <div class="plan-icon mb-3">
+                            <i class="fas fa-spa fa-3x text-info"></i>
+                        </div>
+                        <h4>康复训练</h4>
+                        <p class="text-muted">专业康复训练指导</p>
+                        <a href="rehabilitation.html" class="btn btn-outline-info">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：教练团队展示 -->
+    <section class="trainers py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">专业教练团队</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="trainer-card text-center">
+                        <img src="./imgs/trainer1.jpg" class="rounded-circle mb-3" alt="教练照片">
+                        <h5>路教练</h5>
+                        <p class="text-muted mb-2">专业健身教练</p>
+                        <p class="trainer-description">5年教学经验，擅长增肌训练</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="trainer-card text-center">
+                        <img src="./imgs/trainer2.jpg" class="rounded-circle mb-3" alt="教练照片">
+                        <h5>金教练</h5>
+                        <p class="text-muted mb-2">IFBB PRO</p>
+                        <p class="trainer-description">增肌、减脂、塑性、备赛</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="trainer-card text-center">
+                        <img src="./imgs/trainer3.jpg" class="rounded-circle mb-3" alt="教练照片">
+                        <h5>连教练</h5>
+                        <p class="text-muted mb-2">瑜伽训练</p>
+                        <p class="trainer-description">8年教学经验，擅长瑜伽训练</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="trainer-card text-center">
+                        <img src="./imgs/trainer4.jpg" class="rounded-circle mb-3" alt="教练照片">
+                        <h5>马教练</h5>
+                        <p class="text-muted mb-2">有氧运动专家</p>
+                        <p class="trainer-description">7年教学经验，擅长有氧训练</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 简化页脚部分 -->
+    <footer class="footer bg-dark text-light">
+        <div class="footer-main py-4">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- 品牌信息 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-brand d-flex align-items-center mb-3">
+                            <div class="brand-logo me-2">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="brand-text">
+                                健身生活
+                                <span class="brand-subtitle d-block">FITNESS LIFE</span>
+                            </div>
+                        </div>
+                        <p class="mb-0 text-light-50 small">健身生活致力于为每个人提供专业的健身指导和优质的训练课程。</p>
+                    </div>
+
+                    <!-- 快速链接 -->
+                    <div class="col-lg-2 col-md-6">
+                        <h6 class="footer-title mb-3">快速链接</h6>
+                        <ul class="footer-links list-unstyled small">
+                            <li><a href="#" class="d-block mb-2">关于我们</a></li>
+                            <li><a href="#" class="d-block mb-2">课程介绍</a></li>
+                            <li><a href="#" class="d-block mb-2">教练团队</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 帮助中心 -->
+                    <div class="col-lg-2 col-md-6">
+                        <h6 class="footer-title mb-3">帮助中心</h6>
+                        <ul class="footer-links list-unstyled small">
+                            <li><a href="#" class="d-block mb-2">常见问题</a></li>
+                            <li><a href="#" class="d-block mb-2">隐私政策</a></li>
+                            <li><a href="#" class="d-block mb-2">联系我们</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 联系方式 -->
+                    <div class="col-lg-4 col-md-6">
+                        <h6 class="footer-title mb-3">联系我们</h6>
+                        <div class="footer-contact small">
+                            <p class="mb-2"><i class="fas fa-phone-alt me-2"></i>400-123-4567</p>
+                            <p class="mb-2"><i class="far fa-envelope me-2"></i>contact@fitness.com</p>
+                            <div class="footer-social mt-3">
+                                <a href="#" class="social-link me-2"><i class="fab fa-weixin"></i></a>
+                                <a href="#" class="social-link me-2"><i class="fab fa-weibo"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 版权息 -->
+        <div class="footer-bottom py-2 border-top border-secondary">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <div class="copyright small">
+                            &copy; 2024 健身生活. 保留所有权利.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="footer-legal list-inline mb-0 text-center text-md-end small">
+                            <li class="list-inline-item">
+                                <a href="#">京ICP备12345678号</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS 和依赖 -->
+    <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 检查是否需要显示注册成功提示
+        window.onload = function() {
+            if (localStorage.getItem('showRegisterSuccess') === 'true') {
+                alert('注册成功！');
+                localStorage.removeItem('showRegisterSuccess');
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新手入门 - 健身生活</title>
+    <!-- Bootstrap CSS -->
+    <link href="./bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="font/css/all.min.css" rel="stylesheet">
+    
+    <!-- 自定义 CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        
+
+        /* 卡片样式 */
+        .card {
+            transition: transform 0.3s;
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .training-tips {
+            font-size: 0.9rem;
+            padding: 1rem;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 8px;
+        }
+
+        /* 返回首页按钮 */
+        .back-to-home {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .back-to-home .btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            /* 特色图标尺寸调整 */
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- 导航栏 -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-dumbbell "></i>
+                健身生活
+            </a>
+            <!--导航控制组件-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="beginner.html">新手入门</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="weight-loss.html">减脂计划</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="muscle-gain.html">增肌计划</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rehabilitation.html">康复训练</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+                
+                <div class="back-to-home position-fixed">
+                    <a href="index.html" class="btn btn-primary rounded-circle" title="返回首页">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <header class="bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>新手健身指南</h1>
+                    <p class="lead">专为健身新手打造的30天入门计划，让您轻松开启健康生活</p>
+                </div>
+                <div class="col-lg-6">
+                    <!-- <img src="imgs/新手指南.png" alt="新手指南" class="img-fluid rounded"> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 关键信息卡片 -->
+    <section class="key-points py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-clipboard-list fa-2x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">基础知识</h5>
+                            <p class="card-text">了解健身基本��念和注意事项，为科学训练打好基础</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-dumbbell fa-2x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">训练计划</h5>
+                            <p class="card-text">循序渐进的训练方案，帮助您科学有效地达成目标</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-apple-alt fa-2x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">饮食建议</h5>
+                            <p class="card-text">合理的营养搭配方案，助力训练效果最大化</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 健身基础知识部分 -->
+    <section class="basic-knowledge py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">健身基础知识</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="knowledge-card card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">
+                                <i class="fas fa-heart text-danger me-2"></i>
+                                健身的重要性
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3 d-flex">
+                                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">提高身体素质</h6>
+                                        <p class="text-muted mb-0">增强体能，提升肌肉力量，改善心肺功能</p>
+                                    </div>
+                                </li>
+                                <li class="mb-3 d-flex">
+                                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">预防疾病</h6>
+                                        <p class="text-muted mb-0">降低心血管疾病风险，增强免疫力</p>
+                                    </div>
+                                </li>
+                                <li class="d-flex">
+                                    <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">改善心理健康</h6>
+                                        <p class="text-muted mb-0">缓解压力，提升自信心，改善睡眠质量</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="knowledge-card card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">
+                                <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                                健身注意事项
+                            </h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-3 d-flex">
+                                    <i class="fas fa-exclamation-circle text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">循序渐进</h6>
+                                        <p class="text-muted mb-0">从低强度开始，逐步增加训练量和强度</p>
+                                    </div>
+                                </li>
+                                <li class="mb-3 d-flex">
+                                    <i class="fas fa-exclamation-circle text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">正确姿势</h6>
+                                        <p class="text-muted mb-0">保持正确的训练姿势，避免运动损伤</p>
+                                    </div>
+                                </li>
+                                <li class="d-flex">
+                                    <i class="fas fa-exclamation-circle text-danger me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">适度休息</h6>
+                                        <p class="text-muted mb-0">保证充足的休息时间，避免过度训练</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 训练建议部分 -->
+    <section class="training-tips py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">新手训练建议</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="tip-card text-center p-4 rounded shadow-sm">
+                        <div class="tip-icon mb-3">
+                            <i class="fas fa-clock fa-2x text-primary"></i>
+                        </div>
+                        <h5>训练时间</h5>
+                        <p class="text-muted">每周3-4次，每次45-60分钟，循序渐进增加训练量</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tip-card text-center p-4 rounded shadow-sm">
+                        <div class="tip-icon mb-3">
+                            <i class="fas fa-heartbeat fa-2x text-danger"></i>
+                        </div>
+                        <h5>运动强度</h5>
+                        <p class="text-muted">保持中等度，心率控制在最大心率的60-75%之间</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tip-card text-center p-4 rounded shadow-sm">
+                        <div class="tip-icon mb-3">
+                            <i class="fas fa-utensils fa-2x text-success"></i>
+                        </div>
+                        <h5>营养补充</h5>
+                        <p class="text-muted">注意蛋白质摄入，��练前后及时补充能量</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tip-card text-center p-4 rounded shadow-sm">
+                        <div class="tip-icon mb-3">
+                            <i class="fas fa-bed fa-2x text-info"></i>
+                        </div>
+                        <h5>休息恢复</h5>
+                        <p class="text-muted">保证充足睡眠，同一肌群训练间隔48小时以上</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="faq py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">常见问题</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    初学者应该如何开始健身？
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    建议从基础动作开始，先掌握标准动作要领。可以从每周3次训练开始，每次45-60分钟，包括热身、力量训练和放松。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    健身前后应该吃什么？
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    训练前1-2小时可以适量摄入碳水化合物和蛋白质，训练后30分钟内补充蛋白质和碳水化合物，帮助恢复和生长。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    如何避免运动损伤？
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    做好充分的热身，循序渐进增加训练强度，保持正确的动作姿势，注意休息和恢复，必要时寻求专业教练指导。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 开始训练CTA -->
+    <section class="cta py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">准备好开始训练了吗？</h2>
+            <p class="lead mb-4">加入我们的训练计划，专业教练全程指导</p>
+        
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <!-- 复制主页的���脚代码到这里 -->
+
+    <!-- Bootstrap JS -->
+    <script src="./bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

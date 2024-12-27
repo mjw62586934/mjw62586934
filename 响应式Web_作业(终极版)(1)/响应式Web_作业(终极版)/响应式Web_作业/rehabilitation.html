@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>康复训练 - 健身生活</title>
+    <link href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link href="font/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 设备和分析卡片 */
+        .equipment-card,
+        .analysis-card {
+            overflow: hidden;
+        }
+
+        .equipment-card .card-img-top,
+        .analysis-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.3s;
+        }
+
+        .equipment-card:hover .card-img-top,
+        .analysis-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        /* 专家卡片样式 */
+        .expert-card {
+            transition: transform 0.3s;
+        }
+
+        .expert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .expert-card img {
+            height: 350px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+
+        /* 康复流程 */
+        .process-step {
+            position: relative;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-dumbbell me-2"></i>
+                健身生活
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="beginner.html">新手入门</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="weight-loss.html">减脂计划</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="muscle-gain.html">增肌计划</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="register.html">康复训练</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部横幅 -->
+    <header class="bg-info text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>专业康复训练</h1>
+                    <p class="lead">科学的康复训练方案，帮助你恢复健康</p>
+                </div>
+                <!-- <div class="col-lg-6"> -->
+                <!-- <img src="imgs/专业康复-头部横幅.jpg" class="img-fluid rounded" alt="康复训练"> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </header>
+
+    <!-- 康复项目 -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">康复训练项目</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-bone fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">运动损伤康复</h5>
+                            <p class="card-text">专业的运动损伤康复训练方案</p>
+                            <p class="text-muted small mb-3">适用：运动损伤、肌肉拉伤、关节扭伤</p>
+                            <a href="#" class="btn btn-info text-white">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-walking fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">术后康复</h5>
+                            <p class="card-text">专业的术后康复训练指导</p>
+                            <p class="text-muted small mb-3">适用：手术后恢复、肌力重建、关节活动度改善</p>
+                            <a href="#" class="btn btn-info text-white">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-md fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">慢性疼痛康复</h5>
+                            <p class="card-text">缓解慢性疼痛的康复训练</p>
+                            <p class="text-muted small mb-3">适用：颈椎病、腰椎病、肩周炎等慢性疼痛</p>
+                            <a href="#" class="btn btn-info text-white">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 添加康复流程部分 -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">康复流程</h2>
+            <div class="row">
+                <div class="col-md-3 text-center mb-4">
+                    <div class="process-step">
+                        <div class="step-number bg-info text-white rounded-circle mb-3">1</div>
+                        <h5>专业评估</h5>
+                        <p>进行专业的身体状况评估</p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="process-step">
+                        <div class="step-number bg-info text-white rounded-circle mb-3">2</div>
+                        <h5>制定方案</h5>
+                        <p>根据评估结果制定康复方案</p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="process-step">
+                        <div class="step-number bg-info text-white rounded-circle mb-3">3</div>
+                        <h5>康复训练</h5>
+                        <p>进行专业的康复训练指导</p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="process-step">
+                        <div class="step-number bg-info text-white rounded-circle mb-3">4</div>
+                        <h5>效果评估</h5>
+                        <p>定期评估康复训练效果</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 康复专家团队 -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">康复专家团队</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4 expert-card">
+                    <div class="card h-100">
+                        <img src="imgs/专业康复-张医生.jpg" class="card-img-top" alt="康复专家">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">张医生</h5>
+                            <p class="text-muted">主任医师</p>
+                            <p class="card-text">专注运动损伤康复20年，曾任国家队康复师</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 expert-card">
+                    <div class="card h-100">
+                        <img src="imgs/专业康复-高医生.jpg" class="card-img-top" alt="康复专家">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">高医生</h5>
+                            <p class="text-muted">康复治疗师</p>
+                            <p class="card-text">专注术后康复训练，拥有丰富临床经验</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 康复设备展示 -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">专业康复设备</h2>
+            <div class="row g-4">
+                <div class="col-md-4 equipment-card">
+                    <div class="card h-100">
+                        <img src="imgs/专业康复-等速训练设备.jpg" class="card-img-top" alt="康复设备">
+                        <div class="card-body">
+                            <h5 class="card-title">等速训练设备</h5>
+                            <p class="card-text">专业的等速康复训练设备，帮助肌力恢复</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 equipment-card">
+                    <div class="card h-100">
+                        <img src="imgs/专业康复-平衡训练系统.webp" class="card-img-top" alt="康复设备">
+                        <div class="card-body">
+                            <h5 class="card-title">平衡训练系统</h5>
+                            <p class="card-text">先进的平衡能力训练系统，提升康复效果</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 analysis-card">
+                    <div class="card h-100">
+                        <img src="imgs/专业康复-运动分析系统.jpg" class="card-img-top" alt="康复设备">
+                        <div class="card-body">
+                            <h5 class="card-title">运动分析系统</h5>
+                            <p class="card-text">精准的运动分析系统，制定个性化康复方案</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>增肌计划 - 健身生活</title>
+    <link href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link href="font/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 成功案例样式 */
+        .success-case .card {
+            height: 100%;
+            transition: transform 0.3s;
+        }
+
+        .success-case .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .success-case .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .success-case .card-body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .success-case .btn {
+            margin-top: auto;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-dumbbell me-2"></i>
+                健身生活
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="beginner.html">新手入门</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="weight-loss.html">减脂计划</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="muscle-gain.html">增肌计划</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rehabilitation.html">康复训练</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部横幅 -->
+    <header class="bg-danger text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>专业增肌计划</h1>
+                    <p class="lead">科学的增肌训练方案，帮助你打造理想身材</p>
+                </div>
+                <!-- <div class="col-lg-6"> -->
+                    <!-- <img src="imgs/muscle-gain-banner.jpg" class="img-fluid rounded" alt="增肌训练"> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </header>
+
+     <!-- 训练内容 -->
+     <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">训练内容</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <img src="./imgs/增肌计划-胸部训练.jpg" class="card-img-top" alt="胸部训练">
+                        <div class="card-body">
+                            <h5 class="card-title">胸部训练</h5>
+                            <p class="card-text">专业的胸肌训练计划，打造强壮胸肌。</p>
+                            <p class="text-muted small mb-3">推荐动作：卧推、哑铃飞鸟、俯卧撑</p>
+                            <a href="#" class="btn btn-danger">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <img src="./imgs/增肌计划-背部训练.jpg" class="card-img-top" alt="背部训练">
+                        <div class="card-body">
+                            <h5 class="card-title">背部训练</h5>
+                            <p class="card-text">全面的背部肌群训练，打造完美背部线条。</p>
+                            <p class="text-muted small mb-3">推荐动作：引体向上、划船、高位下拉</p>
+                            <a href="#" class="btn btn-danger">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <img src="./imgs/增肌计划-腿部训练.jpg" class="card-img-top" alt="腿部训练">
+                        <div class="card-body">
+                            <h5 class="card-title">腿部训练</h5>
+                            <p class="card-text">强化下肢力量，提升整体训练效果。</p>
+                            <p class="text-muted small mb-3">推荐动作：深蹲、腿举、箭步蹲</p>
+                            <a href="#" class="btn btn-danger">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100">
+                        <img src="./imgs/增肌计划-手臂训练.jpg" class="card-img-top" alt="手臂训练">
+                        <div class="card-body">
+                            <h5 class="card-title">手臂训练</h5>
+                            <p class="card-text">全面的手臂训练，打造坚实手臂肌肉。</p>
+                            <p class="text-muted small mb-3">推荐动作：弯举、臂屈伸、三头下压</p>
+                            <a href="#" class="btn btn-danger">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 训练周期安排 -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">训练周期安排</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0">第一阶段（1-4周）</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="mb-3">适应期训练</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>掌握基础动作要领</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>建立神经肌肉连接</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>培养训练习惯</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0">第二阶段（5-8周）</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="mb-3">肌肉增长期</h6>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>增加训练强度</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>调整训练计划</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>注重饮食营养</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 添加训练计划部分 -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">增肌训练计划</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-sm-10 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title text-center mb-4">基础增肌计划</h3>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>���练期：</span>
+                                <span>12周</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>训练频率：</span>
+                                <span>每周4次</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>训练强度：</span>
+                                <span>中等强度</span>
+                            </div>
+                            <hr>
+                            <h5 class="mb-3">包含内容：</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>专业训练计划</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>营养膳食指导</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>训练技术指导</li>
+                            </ul>
+                            <button class="btn btn-danger w-100 mt-4">立即参与</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 添加更多训练计划 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 成功案例部分 -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">成功案例</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4 success-case">
+                    <div class="card">
+                        <img src="imgs/增肌计划-增肌案例1.jpg" class="card-img-top" alt="成功案例1">
+                        <div class="card-body">
+                            <h5 class="card-title">陈先生的增肌之旅</h5>
+                            <p class="card-text">3个月增重10公斤，肌肉含量提升8%</p>
+                            <p class="text-muted">训练时长：3个月</p>
+                            <button class="btn btn-outline-danger">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 success-case">
+                    <div class="card">
+                        <img src="imgs/增肌计划-增肌案例2.jpg" class="card-img-top" alt="成功案例2">
+                        <div class="card-body">
+                            <h5 class="card-title">王先生的健身故事</h5>
+                            <p class="card-text">4个月增重15斤，成功打造完美肌肉线条</p>
+                            <p class="text-muted">训练时长：4个月</p>
+                            <button class="btn btn-outline-danger">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 success-case">
+                    <div class="card">
+                        <img src="imgs/muscle-success-3.jpg" class="card-img-top" alt="成功案例3">
+                        <div class="card-body">
+                            <h5 class="card-title">李先生的增肌历程</h5>
+                            <p class="card-text">6个月增重20公斤，实现体型完美蜕变</p>
+                            <p class="text-muted">训练时长：6个月</p>
+                            <button class="btn btn-outline-danger">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
